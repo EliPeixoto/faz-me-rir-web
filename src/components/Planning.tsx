@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { Card, CardHeader, CardContent } from './ui/Card';
-import { Input, Select } from './ui/Input';
+import { Card, CardHeader, CardContent } from './ui/card';
+import { Input, Select } from './ui/input';
 import { AlertCircle, CheckCircle, TrendingUp } from 'lucide-react';
 
 interface Transaction {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardHeader, CardContent } from './ui/Card';
-import { Input, Select } from './ui/Input';
-import { Button } from './ui/Button';
+import { Card, CardHeader, CardContent } from './ui/card';
+import { Input, Select } from './ui/input';
+import { Button } from './ui/button';
 import { ArrowLeft, Calculator } from 'lucide-react';
 
 interface Transaction {

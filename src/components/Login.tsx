@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Input } from './ui/Input';
-import { Button } from './ui/Button';
-import { Card, CardContent } from './ui/Card';
+import { useState, type FormEvent } from "react";
+import { Input } from './ui/input';
+import { Button } from './ui/button';
+import { Card, CardContent } from './ui/card';
 import { DollarSign } from 'lucide-react';
 
 interface LoginProps {
@@ -12,7 +12,7 @@ export function Login({ onLogin }: LoginProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     onLogin();
   };
@@ -30,17 +30,16 @@ export function Login({ onLogin }: LoginProps) {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+             <label className="text-sm font-medium">E-mail</label>
             <Input
-              label="E-mail"
               type="email"
               placeholder="seu@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            
+             <label className="text-sm font-medium">Senha</label>
             <Input
-              label="Senha"
               type="password"
               placeholder="••••••••"
               value={password}

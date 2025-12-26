@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card, CardHeader, CardContent } from './ui/Card';
-import { Button } from './ui/Button';
+import { Card, CardHeader, CardContent } from './ui/card';
+import { Button } from './ui/button';
 import { Pencil, Trash2, Plus, X, Filter, Search } from 'lucide-react';
-import { Input } from './ui/Input';
+import { Input } from './ui/input';
 
 interface Transaction {
   id: string;
