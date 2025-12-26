@@ -2,7 +2,7 @@ import { useState, useEffect, type FormEvent } from "react";
 import { Card, CardHeader, CardContent } from "./ui/card";
 import { Input, Select } from "./ui/input";
 import { Button } from "./ui/button";
-import { ArrowLeft, Calculator } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 interface Transaction {
   id: string;
@@ -48,7 +48,6 @@ export function ExpenseForm({
   const [valueType, setValueType] =
     useState<"monthly" | "total">("total");
 
-  const [calculatedAmount, setCalculatedAmount] = useState("");
 
   useEffect(() => {
     if (transaction) {
@@ -76,16 +75,9 @@ export function ExpenseForm({
       amount &&
       installments
     ) {
-      const amountValue = parseFloat(amount);
-      const installmentsValue = parseInt(installments);
 
-      setCalculatedAmount(
-        valueType === "total"
-          ? (amountValue / installmentsValue).toFixed(2)
-          : (amountValue * installmentsValue).toFixed(2)
-      );
     } else {
-      setCalculatedAmount("");
+
     }
   }, [amount, installments, valueType, paymentType]);
 
@@ -116,12 +108,6 @@ export function ExpenseForm({
 
     onSave(data);
   };
-
-  const formatCurrency = (value: number) =>
-    new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(value);
 
   const categories =
     type === "receita"

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Card, CardHeader, CardContent } from './ui/card';
 import { TrendingUp, TrendingDown, Wallet, ArrowUpRight, ArrowDownRight, Repeat } from 'lucide-react';
 

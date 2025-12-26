@@ -11,7 +11,6 @@ import {
   Home,
   Repeat,
   CheckCircle2,
-  XCircle,
   Clock
 } from 'lucide-react';
 
@@ -463,7 +462,6 @@ export function RecurringExpenses() {
                             name="valueType"
                             value="monthly"
                             checked={formData.valueType === 'monthly'}
-                            onChange={(e) => setFormData({ ...formData, valueType: 'monthly' })}
                             className="w-4 h-4 text-[var(--primary-green)] border-gray-300 focus:ring-[var(--primary-green)]"
                           />
                           <span className="text-gray-700">Valor Mensal x Meses = Total</span>
@@ -474,7 +472,6 @@ export function RecurringExpenses() {
                             name="valueType"
                             value="total"
                             checked={formData.valueType === 'total'}
-                            onChange={(e) => setFormData({ ...formData, valueType: 'total' })}
                             className="w-4 h-4 text-[var(--primary-green)] border-gray-300 focus:ring-[var(--primary-green)]"
                           />
                           <span className="text-gray-700">Valor Total ÷ Meses = Mensal</span>
