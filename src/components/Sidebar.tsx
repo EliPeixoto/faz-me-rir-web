@@ -34,7 +34,7 @@ export function Sidebar({ currentView, onNavigate, onLogout }: SidebarProps) {
             <DollarSign className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h2 className="text-gray-900">FinanceApp</h2>
+            <h2 className="text-gray-900">Controla Dindin</h2>
           </div>
         </div>
       </div>
