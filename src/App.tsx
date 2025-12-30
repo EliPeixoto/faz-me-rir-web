@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Login } from './components/Login';
 import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
 import { ExpenseList } from './components/ExpenseList';
 import { ExpenseForm } from './components/ExpenseForm';
 import { Planning } from './components/Planning';
 import { RecurringExpenses } from './components/RecurringExpenses';
+import keycloak from './auth/keycloak';
 
 interface Transaction {
   id: string;
@@ -28,6 +28,15 @@ export default function App() {
   const [currentView, setCurrentView] = useState('dashboard');
   const [editingTransaction, setEditingTransaction] = useState<Transaction | undefined>();
   const [showForm, setShowForm] = useState(false);
+
+   if (!keycloak.authenticated) {
+    keycloak.login();
+    return null;
+  }
+
+  const handleLogout = () => {
+    keycloak.logout({ redirectUri: window.location.origin });
+  };
   
   // Mock data - dados de exemplo
   const [transactions, setTransactions] = useState<Transaction[]>([
@@ -91,10 +100,7 @@ export default function App() {
     setIsLoggedIn(true);
   };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setCurrentView('dashboard');
-  };
+  
 
   const handleNavigate = (view: string) => {
     setCurrentView(view);
@@ -144,9 +150,6 @@ export default function App() {
     setEditingTransaction(undefined);
   };
 
-  if (!isLoggedIn) {
-    return <Login onLogin={handleLogin} />;
-  }
 
   return (
     <div className="flex min-h-screen bg-gray-50">
