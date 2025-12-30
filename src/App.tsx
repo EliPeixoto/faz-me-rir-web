@@ -6,6 +6,7 @@ import { ExpenseForm } from './components/ExpenseForm';
 import { Planning } from './components/Planning';
 import { RecurringExpenses } from './components/RecurringExpenses';
 import keycloak from './auth/keycloak';
+import { ReceitasPage } from './pages/ReceitasPage';
 
 interface Transaction {
   id: string;
@@ -159,25 +160,9 @@ export default function App() {
           <Dashboard transactions={transactions} />
         )}
         
-        {currentView === 'receitas' && !showForm && (
-          <ExpenseList
-            transactions={transactions}
-            type="receita"
-            onEdit={handleEditTransaction}
-            onDelete={handleDeleteTransaction}
-            onAdd={handleAddTransaction}
-          />
+       {currentView === 'receitas' && (
+        <ReceitasPage />
         )}
-        
-        {currentView === 'receitas' && showForm && (
-          <ExpenseForm
-            transaction={editingTransaction}
-            type="receita"
-            onSave={handleSaveTransaction}
-            onCancel={handleCancelForm}
-          />
-        )}
-        
         {currentView === 'despesas' && !showForm && (
           <ExpenseList
             transactions={transactions}
