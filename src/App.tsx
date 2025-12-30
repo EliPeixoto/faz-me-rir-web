@@ -24,7 +24,6 @@ interface Transaction {
 }
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentView, setCurrentView] = useState('dashboard');
   const [editingTransaction, setEditingTransaction] = useState<Transaction | undefined>();
   const [showForm, setShowForm] = useState(false);
@@ -95,10 +94,6 @@ export default function App() {
       status: 'pendente'
     }
   ]);
-
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
 
   
 
