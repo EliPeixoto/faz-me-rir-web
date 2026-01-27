@@ -5,7 +5,6 @@ import { ExpenseList } from './components/ExpenseList';
 import { ExpenseForm } from './components/ExpenseForm';
 import { Planning } from './components/Planning';
 import { RecurringExpenses } from './components/RecurringExpenses';
-import keycloak from './auth/keycloak';
 import { ReceitasPage } from './pages/ReceitasPage';
 
 interface Transaction {
@@ -29,13 +28,10 @@ export default function App() {
   const [editingTransaction, setEditingTransaction] = useState<Transaction | undefined>();
   const [showForm, setShowForm] = useState(false);
 
-   if (!keycloak.authenticated) {
-    keycloak.login();
-    return null;
-  }
+
 
   const handleLogout = () => {
-    keycloak.logout({ redirectUri: window.location.origin });
+    setCurrentView('dashboard');
   };
   
   // Mock data - dados de exemplo

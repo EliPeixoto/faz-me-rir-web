@@ -1,15 +1,14 @@
-import keycloak from "../auth/keycloak";
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080";
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 
 async function request<T>(path:string, method: HttpMethod, body?: unknown): Promise<T> {
-    const token = keycloak?.token;
+
 
     const res = await fetch(`${API_BASE_URL}${path}`, {
         method,
         headers: {
-            "Content-Type": "application/json",
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+
         },
         body: body ? JSON.stringify(body) : undefined,
     });
