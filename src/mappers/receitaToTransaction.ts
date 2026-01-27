@@ -29,7 +29,7 @@ export function receitaToTransaction(r: ReceitaDto): Transaction {
     description: r.descricaoRecebimento,
     category: r.categoriaReceita,
     amount: Number(r.valorReceita),
-    date: r.data,
+    date: r.dataRecebimento,
     type: "receita",
     status: mapStatusBackendToUI(r.statusReceita),
   };

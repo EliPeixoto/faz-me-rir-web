@@ -1,7 +1,7 @@
 export type ReceitaDto = {
     id?: number;
     valorReceita: number;
-    data: string;
+    dataRecebimento: string;
     descricaoRecebimento: string;
     categoriaReceita: string;
     statusReceita: string;

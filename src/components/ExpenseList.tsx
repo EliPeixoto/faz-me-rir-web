@@ -334,7 +334,7 @@ export function ExpenseList({ transactions, type, onEdit, onDelete, onAdd }: Exp
               <table className="w-full">
                 <thead className="bg-gray-50 border-b border-gray-200">
                   <tr>
-                    <th className="px-6 py-3 text-left">Descrição</th>
+                    <th className="px-6 py-3 text-left w-[50%]">Descrição</th>
                     <th className="px-6 py-3 text-left">Categoria</th>
                     <th className="px-6 py-3 text-right">Valor</th>
                     <th className="px-6 py-3 text-left">Data</th>
